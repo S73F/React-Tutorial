@@ -6,14 +6,7 @@ export const Layout = () => {
   return (
     <>
       <Navbar />
-      <Box
-        height={{
-          xs: "calc(100vh - 56px)",
-          sm: "calc(100vh - 64px)",
-          md: "calc(100vh - 68.5px)",
-        }}
-        padding={3}
-      >
+      <Box bgcolor={"#c5c6c7"}>
         <Outlet />
       </Box>
     </>
