@@ -26,8 +26,7 @@ export const Attrezzature = () => {
       direction={{ xs: "column", sm: "row" }}
       flexWrap={"wrap"}
       justifyContent={"center"}
-      useFlexGap
-      spacing={7}
+      gap={7}
       padding={3}
     >
       {data.map((equipment) => (
