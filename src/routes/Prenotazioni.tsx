@@ -1,1 +1,3 @@
-export const Prenotazioni = () => {};
+export const Prenotazioni = () => {
+  return "";
+};
