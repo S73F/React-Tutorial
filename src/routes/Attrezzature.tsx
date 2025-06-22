@@ -20,35 +20,37 @@ export const Attrezzature = () => {
   }
 
   return (
-    <Stack
-      width={"100%"}
-      minHeight={height}
-      direction={{ xs: "column", sm: "row" }}
-      flexWrap={"wrap"}
-      justifyContent={"center"}
-      gap={7}
-      padding={3}
-    >
-      {data.map((equipment) => (
-        <Card>
-          <CardActionArea>
-            <CardMedia component="img" height="200" image={equipment.image} />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {equipment.name}
-              </Typography>
-              <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                {equipment.claim}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <CardActions>
-            <Button size="small" color="primary">
-              Prenota
-            </Button>
-          </CardActions>
-        </Card>
-      ))}
+    <Stack width={"100%"} minHeight={height} padding={3} textAlign={"center"}>
+      <Typography variant="h3" mb={4}>
+        Attrezzature
+      </Typography>
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        flexWrap={"wrap"}
+        justifyContent={"center"}
+        gap={7}
+      >
+        {data.map((equipment) => (
+          <Card>
+            <CardActionArea>
+              <CardMedia component="img" height="200" image={equipment.image} />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {equipment.name}
+                </Typography>
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                  {equipment.claim}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+            <CardActions>
+              <Button size="small" color="primary">
+                Prenota
+              </Button>
+            </CardActions>
+          </Card>
+        ))}
+      </Stack>
     </Stack>
   );
 };
