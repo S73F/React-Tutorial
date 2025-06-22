@@ -1,8 +1,9 @@
 import { Stack, Typography } from "@mui/material";
+import { height } from "../styles";
 
 export const Home = () => {
   return (
-    <Stack justifyContent={"center"} textAlign={"center"} height={"100%"}>
+    <Stack justifyContent={"center"} textAlign={"center"} height={height}>
       <Typography variant="h3" component="h1" gutterBottom>
         Welcome to the React + TypeScript + MUI template!
       </Typography>
