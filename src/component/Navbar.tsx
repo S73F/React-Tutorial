@@ -33,8 +33,8 @@ function Navbar() {
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={NavLink}
+            to={"/"}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -106,8 +106,8 @@ function Navbar() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={NavLink}
+            to={"/"}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
