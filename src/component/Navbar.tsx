@@ -75,33 +75,31 @@ function Navbar() {
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: "block", md: "none" } }}
             >
-              <>
-                <MenuItem
-                  component={NavLink}
-                  to={"/"}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography sx={{ textAlign: "center" }}>Home</Typography>
-                </MenuItem>
-                <MenuItem
-                  component={NavLink}
-                  to={"/equipments"}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography sx={{ textAlign: "center" }}>
-                    Attrezzature
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  component={NavLink}
-                  to={"/bookings"}
-                  onClick={handleCloseNavMenu}
-                >
-                  <Typography sx={{ textAlign: "center" }}>
-                    Prenotazioni
-                  </Typography>
-                </MenuItem>
-              </>
+              <MenuItem
+                component={NavLink}
+                to={"/"}
+                onClick={handleCloseNavMenu}
+              >
+                <Typography sx={{ textAlign: "center" }}>Home</Typography>
+              </MenuItem>
+              <MenuItem
+                component={NavLink}
+                to={"/equipments"}
+                onClick={handleCloseNavMenu}
+              >
+                <Typography sx={{ textAlign: "center" }}>
+                  Attrezzature
+                </Typography>
+              </MenuItem>
+              <MenuItem
+                component={NavLink}
+                to={"/bookings"}
+                onClick={handleCloseNavMenu}
+              >
+                <Typography sx={{ textAlign: "center" }}>
+                  Prenotazioni
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />

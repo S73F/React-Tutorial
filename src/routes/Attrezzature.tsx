@@ -11,9 +11,18 @@ import {
 } from "@mui/material";
 import { useFetchEquipments } from "../hooks/useFetchEquipments";
 import { height } from "../styles";
+import { useState } from "react";
+import type { EquipmentsResponse } from "../types";
+import { BookingModal } from "../component/BookingModal";
 
 export const Attrezzature = () => {
   const { data, loading } = useFetchEquipments();
+  const [open, setOpen] = useState<boolean>(false);
+  const [equipmentToBook, setEquipmentToBook] = useState<EquipmentsResponse>();
+  const handleOpen = (equipment: EquipmentsResponse) => {
+    setEquipmentToBook(equipment);
+    setOpen(!open);
+  };
 
   if (loading) {
     return <CircularProgress />;
@@ -31,8 +40,8 @@ export const Attrezzature = () => {
         gap={7}
       >
         {data.map((equipment) => (
-          <Card>
-            <CardActionArea>
+          <Card key={equipment.id}>
+            <CardActionArea onClick={() => handleOpen(equipment)}>
               <CardMedia component="img" height="200" image={equipment.image} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -44,13 +53,25 @@ export const Attrezzature = () => {
               </CardContent>
             </CardActionArea>
             <CardActions>
-              <Button size="small" color="primary">
+              <Button
+                size="small"
+                color="primary"
+                onClick={() => handleOpen(equipment)}
+              >
                 Prenota
               </Button>
             </CardActions>
           </Card>
         ))}
       </Stack>
+
+      {open && (
+        <BookingModal
+          equipment={equipmentToBook}
+          open={open}
+          handleOpen={handleOpen}
+        />
+      )}
     </Stack>
   );
 };

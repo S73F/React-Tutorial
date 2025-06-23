@@ -6,3 +6,9 @@ export interface EquipmentsResponse {
   image: string;
   pricePerMinute: number;
 }
+
+export interface BookingModalProps {
+  equipment: EquipmentsResponse | undefined;
+  open: boolean;
+  handleOpen: (equipment: EquipmentsResponse) => void;
+}
