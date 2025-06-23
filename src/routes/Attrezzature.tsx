@@ -10,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useFetchEquipments } from "../hooks/useFetchEquipments";
-import { height } from "../styles";
 import { useState } from "react";
 import type { EquipmentsResponse } from "../types";
 import { BookingModal } from "../component/BookingModal";
@@ -29,8 +28,8 @@ export const Attrezzature = () => {
   }
 
   return (
-    <Stack width={"100%"} minHeight={height} padding={3} textAlign={"center"}>
-      <Typography variant="h3" mb={4}>
+    <>
+      <Typography variant="h3" mb={4} textAlign={"center"}>
         Attrezzature
       </Typography>
       <Stack
@@ -72,6 +71,6 @@ export const Attrezzature = () => {
           handleOpen={handleOpen}
         />
       )}
-    </Stack>
+    </>
   );
 };

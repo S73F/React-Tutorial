@@ -1,7 +1,6 @@
 import {
   CircularProgress,
   Paper,
-  Stack,
   Table,
   TableBody,
   TableCell,
@@ -11,7 +10,6 @@ import {
   Typography,
 } from "@mui/material";
 import { useFetchBookings } from "../hooks/useFetchBookings";
-import { height } from "../styles";
 
 export const Prenotazioni = () => {
   const { bookings, loading } = useFetchBookings();
@@ -21,8 +19,8 @@ export const Prenotazioni = () => {
   }
 
   return (
-    <Stack width={"100%"} minHeight={height} padding={3} textAlign={"center"}>
-      <Typography variant="h3" mb={4}>
+    <>
+      <Typography variant="h3" mb={4} textAlign={"center"}>
         Prenotazioni
       </Typography>
       <TableContainer component={Paper}>
@@ -52,6 +50,6 @@ export const Prenotazioni = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </Stack>
+    </>
   );
 };
