@@ -5,5 +5,5 @@ export const fetchEquipments = async () => {
 
   if (!response.ok) throw new Error("Errore nel fetching dell'API");
 
-  return response.json();
+  return await response.json();
 };

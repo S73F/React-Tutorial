@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   Modal,
   Stack,
   TextField,
@@ -9,6 +10,7 @@ import {
 import { modalStyle } from "../styles";
 import type { BookingModalProps } from "../types";
 import { useState } from "react";
+import { useSendBooking } from "../hooks/useSendBooking";
 
 export const BookingModal = ({
   equipment,
@@ -16,6 +18,13 @@ export const BookingModal = ({
   handleOpen,
 }: BookingModalProps) => {
   const [minutes, setMinutes] = useState<number>(0);
+  const { bookEquipment, loading } = useSendBooking();
+
+  const book = async () => {
+    if (equipment) {
+      await bookEquipment(equipment.id, minutes);
+    }
+  };
 
   return (
     <Modal
@@ -36,8 +45,11 @@ export const BookingModal = ({
             value={minutes}
             onChange={(e) => setMinutes(Number(e.target.value))}
           />
-          <Button sx={{ mt: 2 }}>Prenota</Button>
+          <Button sx={{ mt: 2 }} onClick={book}>
+            Prenota
+          </Button>
         </Stack>
+        {loading ? <CircularProgress /> : ""}
       </Box>
     </Modal>
   );
