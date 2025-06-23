@@ -12,3 +12,10 @@ export interface BookingModalProps {
   open: boolean;
   handleOpen: (equipment: EquipmentsResponse) => void;
 }
+
+export interface BookedEquipmentsResponse {
+  id: number;
+  equipment_id: number;
+  start_date: string;
+  end_date: string;
+}

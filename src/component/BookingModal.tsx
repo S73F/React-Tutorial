@@ -41,7 +41,7 @@ export const BookingModal = ({
         <Stack direction={"row"} mt={3}>
           <TextField
             type="number"
-            InputProps={{ inputProps: { min: 1, max: 30 } }}
+            InputProps={{ inputProps: { min: 1, max: 20 } }}
             value={minutes}
             onChange={(e) => setMinutes(Number(e.target.value))}
           />
