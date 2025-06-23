@@ -7,7 +7,7 @@ export const Layout = () => {
   return (
     <>
       <Navbar />
-      <Box minHeight={height} bgcolor={"#c5c6c7"}>
+      <Box minHeight={height} bgcolor={"#c5c6c7"} padding={3}>
         <Outlet />
       </Box>
     </>
