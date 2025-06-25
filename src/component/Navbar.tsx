@@ -34,7 +34,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component={NavLink}
-            to={"/"}
+            to={"/home"}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -77,7 +77,7 @@ function Navbar() {
             >
               <MenuItem
                 component={NavLink}
-                to={"/"}
+                to={"/home"}
                 onClick={handleCloseNavMenu}
               >
                 <Typography sx={{ textAlign: "center" }}>Home</Typography>
@@ -107,7 +107,7 @@ function Navbar() {
             variant="h5"
             noWrap
             component={NavLink}
-            to={"/"}
+            to={"/home"}
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -124,7 +124,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               component={NavLink}
-              to={"/"}
+              to={"/home"}
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white", display: "block" }}
             >

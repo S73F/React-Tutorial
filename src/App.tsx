@@ -4,13 +4,15 @@ import { Home } from "./routes/Home";
 import { Layout } from "./component/Layout";
 import { Attrezzature } from "./routes/Attrezzature";
 import { Prenotazioni } from "./routes/Prenotazioni";
+import { Login } from "./routes/Login";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/equipments" element={<Attrezzature />} />
           <Route path="/bookings" element={<Prenotazioni />} />
         </Route>
