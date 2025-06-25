@@ -28,7 +28,7 @@ export const Attrezzature = () => {
   }
 
   return (
-    <>
+    <Stack padding={3}>
       <Typography variant="h3" mb={4} textAlign={"center"}>
         Attrezzature
       </Typography>
@@ -71,6 +71,6 @@ export const Attrezzature = () => {
           handleOpen={handleOpen}
         />
       )}
-    </>
+    </Stack>
   );
 };

@@ -1,6 +1,7 @@
 import {
   CircularProgress,
   Paper,
+  Stack,
   Table,
   TableBody,
   TableCell,
@@ -19,7 +20,7 @@ export const Prenotazioni = () => {
   }
 
   return (
-    <>
+    <Stack padding={3}>
       <Typography variant="h3" mb={4} textAlign={"center"}>
         Prenotazioni
       </Typography>
@@ -50,6 +51,6 @@ export const Prenotazioni = () => {
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </Stack>
   );
 };
