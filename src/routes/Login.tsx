@@ -1,7 +1,31 @@
-import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  FormLabel,
+  Paper,
+  Stack,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { NavLink } from "react-router";
+import type { UserData } from "../types";
+import { useLogin } from "../hooks/useLogin";
 
 export const Login = () => {
+  const [data, setData] = useState<UserData>({ username: "", password: "" });
+  const { loginApi, loading } = useLogin();
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    loginApi(data);
+  };
+
   return (
     <Stack
       height={"100vh"}
@@ -32,16 +56,18 @@ export const Login = () => {
         </Typography>
 
         <Stack width={"70%"}>
-          <Typography>Nome utente</Typography>
-          <TextField />
+          <FormLabel>Nome utente</FormLabel>
+          <TextField name="username" onChange={handleChange} />
         </Stack>
 
         <Stack width={"70%"} mt={4} mb={3}>
-          <Typography>Password</Typography>
-          <TextField />
+          <FormLabel>Password</FormLabel>
+          <TextField name="password" onChange={handleChange} />
         </Stack>
 
-        <Button size="large">Login</Button>
+        <Button size="large" onClick={handleSubmit}>
+          Login
+        </Button>
 
         <Typography mt={3}>
           Non hai un account? <NavLink to={""}>Registrati</NavLink>

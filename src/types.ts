@@ -19,3 +19,12 @@ export interface BookedEquipmentsResponse {
   start_date: string;
   end_date: string;
 }
+
+export interface UserData {
+  username: string;
+  password: string;
+}
+
+export type LoginApiResponse = {
+  token: string;
+};
