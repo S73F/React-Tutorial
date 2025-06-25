@@ -5,12 +5,14 @@ import { Layout } from "./component/Layout";
 import { Attrezzature } from "./routes/Attrezzature";
 import { Prenotazioni } from "./routes/Prenotazioni";
 import { Login } from "./routes/Login";
+import { Registrazione } from "./routes/Registrazione";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Registrazione />} />
         <Route element={<Layout />}>
           <Route path="/home" element={<Home />} />
           <Route path="/equipments" element={<Attrezzature />} />

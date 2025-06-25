@@ -9,11 +9,11 @@ import {
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { NavLink } from "react-router";
 import type { UserData } from "../types";
-import { useLogin } from "../hooks/useLogin";
+import { useRegister } from "../hooks/useRegister";
 
-export const Login = () => {
+export const Registrazione = () => {
   const [data, setData] = useState<UserData>({ username: "", password: "" });
-  const { loginApi, loading } = useLogin();
+  const { registerApi, loading } = useRegister();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -23,7 +23,7 @@ export const Login = () => {
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
-    loginApi(data);
+    registerApi(data);
   };
 
   return (
@@ -52,7 +52,7 @@ export const Login = () => {
         elevation={10}
       >
         <Typography variant="h4" mb={5}>
-          Login
+          Registrazione
         </Typography>
 
         <Stack width={"70%"}>
@@ -66,11 +66,11 @@ export const Login = () => {
         </Stack>
 
         <Button size="large" onClick={handleSubmit}>
-          Login
+          Registrati
         </Button>
 
         <Typography mt={3}>
-          Non hai un account? <NavLink to={"/register"}>Registrati</NavLink>
+          Hai già un account? <NavLink to={"/"}>Effettua il login</NavLink>
         </Typography>
       </Paper>
     </Stack>
