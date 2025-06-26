@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   CircularProgress,
   FormLabel,
@@ -11,7 +12,7 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { NavLink, useNavigate } from "react-router";
 import type { UserData } from "../types";
 import { useLogin } from "../hooks/useLogin";
-import { loginFormContainer, loginPageContainer } from "../styles";
+import { bgContainer, loginFormContainer, loginPageContainer } from "../styles";
 
 export const Login = () => {
   const [data, setData] = useState<UserData>({ username: "", password: "" });
@@ -35,42 +36,48 @@ export const Login = () => {
   };
 
   return (
-    <Stack sx={loginPageContainer}>
-      <Paper sx={loginFormContainer} elevation={10}>
-        <Typography variant="h4" mb={{ xs: 2, sm: 3, md: 4 }}>
-          Login
-        </Typography>
+    <Box sx={bgContainer}>
+      <Stack sx={loginPageContainer}>
+        <Paper sx={loginFormContainer} elevation={10}>
+          <Typography variant="h4" mb={{ xs: 2, sm: 3, md: 4 }}>
+            Login
+          </Typography>
 
-        <form onSubmit={handleSubmit}>
-          <Stack>
+          <form onSubmit={handleSubmit}>
             <Stack>
-              <FormLabel>Nome utente</FormLabel>
-              <TextField type="text" name="username" onChange={handleChange} />
+              <Stack>
+                <FormLabel>Nome utente</FormLabel>
+                <TextField
+                  type="text"
+                  name="username"
+                  onChange={handleChange}
+                />
+              </Stack>
+
+              <Stack mt={{ xs: 2, sm: 3, md: 4 }} mb={{ xs: 2, sm: 3, md: 4 }}>
+                <FormLabel>Password</FormLabel>
+                <TextField
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                />
+              </Stack>
+
+              {!loading ? (
+                <Button type="submit" size="large" onClick={handleSubmit}>
+                  Login
+                </Button>
+              ) : (
+                <CircularProgress sx={{ alignSelf: "center" }} />
+              )}
             </Stack>
+          </form>
 
-            <Stack mt={{ xs: 2, sm: 3, md: 4 }} mb={{ xs: 2, sm: 3, md: 4 }}>
-              <FormLabel>Password</FormLabel>
-              <TextField
-                type="password"
-                name="password"
-                onChange={handleChange}
-              />
-            </Stack>
-
-            {!loading ? (
-              <Button type="submit" size="large" onClick={handleSubmit}>
-                Login
-              </Button>
-            ) : (
-              <CircularProgress sx={{ alignSelf: "center" }} />
-            )}
-          </Stack>
-        </form>
-
-        <Typography mt={{ xs: 2, sm: 3 }}>
-          Non hai un account? <NavLink to={"/register"}>Registrati</NavLink>
-        </Typography>
-      </Paper>
-    </Stack>
+          <Typography mt={{ xs: 2, sm: 3 }}>
+            Non hai un account? <NavLink to={"/register"}>Registrati</NavLink>
+          </Typography>
+        </Paper>
+      </Stack>
+    </Box>
   );
 };

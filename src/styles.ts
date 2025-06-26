@@ -16,10 +16,18 @@ export const modalStyle = {
   p: 4,
 };
 
-export const loginPageContainer = {
+export const bgContainer = {
   backgroundImage: `url(https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg)`,
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
+};
+
+export const loginPageContainer = {
+  background: "rgba(41, 36, 36, 0.2)",
+  boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+  backdropFilter: "blur(5px)",
+  WebkitBackdropFilter: "blur(5px)",
+  border: "1px solid rgba(43, 32, 32, 0.3)",
   height: "100vh",
   justifyContent: "center",
   alignItems: "center",
