@@ -13,6 +13,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { NavLink } from "react-router";
 
 function Navbar() {
+  const token = localStorage.getItem("authToken");
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -23,6 +25,11 @@ function Navbar() {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    handleCloseNavMenu();
   };
 
   return (
@@ -100,6 +107,15 @@ function Navbar() {
                   Prenotazioni
                 </Typography>
               </MenuItem>
+              <MenuItem
+                component={NavLink}
+                to={"/"}
+                onClick={token ? handleLogout : undefined}
+              >
+                <Typography sx={{ textAlign: "center" }}>
+                  {token ? "Logout" : "Login"}
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
@@ -145,6 +161,14 @@ function Navbar() {
               sx={{ my: 2, color: "white", display: "block" }}
             >
               Prenotazioni
+            </Button>
+            <Button
+              component={NavLink}
+              to={"/"}
+              onClick={token ? handleLogout : undefined}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              {token ? "Logout" : "Login"}
             </Button>
           </Box>
         </Toolbar>

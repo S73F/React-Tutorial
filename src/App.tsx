@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { Home } from "./routes/Home";
 import { Layout } from "./component/Layout";
 import { Attrezzature } from "./routes/Attrezzature";
@@ -18,6 +18,7 @@ function App() {
           <Route path="/equipments" element={<Attrezzature />} />
           <Route path="/bookings" element={<Prenotazioni />} />
         </Route>
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </BrowserRouter>
   );
