@@ -15,3 +15,24 @@ export const modalStyle = {
   boxShadow: 24,
   p: 4,
 };
+
+export const loginPageContainer = {
+  backgroundImage: `url(https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg)`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  height: "100vh",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: 5,
+};
+
+export const loginFormContainer = {
+  bgcolor: "ivory",
+  border: "2px solid black",
+  borderRadius: 5,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  padding: { xs: 3, md: 5 },
+};
