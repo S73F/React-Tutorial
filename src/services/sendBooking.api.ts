@@ -1,19 +1,14 @@
 import { DEFAULT_URL } from "../constants";
 
-export const sendBooking = async (
-  id: number,
-  duration: number,
-  token?: string
-) => {
+export const sendBooking = async (id: number, duration: number) => {
   const headers: HeadersInit = { "Content-Type": "application/json" };
+  const token = localStorage.getItem("authToken");
 
-  if (token) {
-    headers.Authorization = `Bearer ${token}`;
-  }
+  if (token) headers.Authorization = `Bearer ${token}`;
 
   const response = await fetch(`${DEFAULT_URL}/api/equipment/${id}/book`, {
     method: "POST",
-    headers: headers,
+    headers,
     body: JSON.stringify({ duration }),
   });
 
